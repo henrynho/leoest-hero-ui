@@ -1,0 +1,148 @@
+:root{
+    --mainFont: 'Roboto', sans-serif;
+    --secondaryFont:'Roboto Condensed', sans-serif;
+    --color-button:#1B90FC;
+    --white:#ffffff;
+    --black:#202020;
+}
+body{
+    /* font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif; */
+    font-family: var(--secondaryFont);
+    margin: 0;
+    color: var(--white);
+}
+.wrapper{
+    max-inline-size:1664px;
+    /* 320 480 768 1024 1366 1440 1920 */
+    margin: auto;
+}
+p, h1{
+    margin: 0;
+}
+
+.hero h1{
+    font-family: var(--secondaryFont);
+    font-size: 40px;
+    margin-block-end: 8px;
+    margin-block-start: 25px;
+}
+.hero p{
+    font-family: var(--mainFont);
+    font-size: 16px;
+    line-height: 24px;
+    margin-block-start: 8px;
+    margin-block-end: 25px;
+}
+img{
+    max-inline-size: 100%;
+}
+button {
+    background-color: var(--color-button);
+    color: var(--white);
+    padding-block: 16px;
+    padding-inline: 32px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size:15px;
+    line-height: 17px;
+    text-transform: uppercase;
+}
+.hero-content{
+    display: flex;
+    flex-direction: row;
+    block-size: 768px;
+    align-items: center;
+}
+.card{
+    max-inline-size:412px ;
+    color: var(--white);
+    z-index: 2;
+    position: relative;
+}
+.hero{
+    max-inline-size: 100%;
+    background-color: var(--black);
+    background-image: url('../images/loki.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0%, 100% calc(100% - 90px), 0% 100%);
+}
+.hero::before{
+    content: '';
+    inline-size: 50%;
+    display: block;
+    position: absolute;
+    inset-block: 0;
+    z-index: 1;
+    background-color: var(--black);
+    /* clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%); */
+    clip-path: polygon(0 0%, 80% 0, 100% 100%, 0% 100%);
+}
+.imagen-mobile {
+    visibility: hidden;
+    max-inline-size: 0;
+}
+
+@media screen and (max-width:1663px) {
+    .card{
+        margin-inline-start: 80px;
+    }
+}
+@media screen and (max-width:1024px) {
+    .hero{
+        background-image: none;
+        background: none;
+    }
+    .hero-content{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    block-size: auto;
+    background-color: var(--black);
+    }
+    .hero::before{
+    inset-block: auto;
+}
+    .imagen-mobile {
+    visibility: visible;
+    max-inline-size: 100%; 
+    }
+    .card{
+    max-inline-size: 100%;
+    padding-block: 40px;
+    padding-inline: 60px;
+    margin-inline-start: 0;
+    margin-block-end: 80px;
+    }
+    button {
+    inline-size: 100%;
+}
+}
+@media screen and (max-width: 480px) {
+    .card img{
+        max-inline-size: 40%;
+    }
+    .card{
+    max-inline-size: 100%;
+    padding-block-start: 20px;
+    padding-inline: 30px;
+    }
+    .hero h1{
+    font-size: 25px;
+    margin-block-start: 15px;
+    }
+    .hero p{
+        font-family: var(--mainFont);
+        font-size: 14px;
+        line-height: 24px;
+    }
+    button {
+    font-size:12px;
+    }
+    
+}
